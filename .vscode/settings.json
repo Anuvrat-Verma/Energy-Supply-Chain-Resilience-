@@ -1,6 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./gRPC/generated"
-    ],
-    "python.terminal.useEnvFile": true
-}
