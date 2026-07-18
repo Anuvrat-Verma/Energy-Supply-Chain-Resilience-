@@ -1,0 +1,267 @@
+{
+  "refineries": [
+    { "id": "JAMNAGAR_RIL", "name": "Jamnagar Refinery", "coords": [69.96, 22.47] },
+    { "id": "KOCHI_BPCL", "name": "Kochi Refinery", "coords": [76.26, 9.93] },
+    { "id": "PARADIP_IOCL", "name": "Paradip Refinery", "coords": [86.64, 20.25] },
+    { "id": "MUMBAI_HPCL", "name": "Mumbai Refinery", "coords": [72.89, 19.01] },
+    { "id": "CHENNAI_CPCL", "name": "Chennai Refinery", "coords": [80.27, 13.08] }
+  ],
+  "suppliers": [
+    { "id": "BASRA_IRAQ", "name": "Basra Oil Terminal", "coords": [47.93, 30.00] },
+    { "id": "RAS_TANURA_SAUDI", "name": "Ras Tanura Port", "coords": [50.16, 26.64] },
+    { "id": "FUJAIRAH_UAE", "name": "Port of Fujairah", "coords": [56.33, 25.12] },
+    { "id": "KOZMINO_RUSSIA", "name": "Kozmino Port", "coords": [133.01, 42.73] },
+    { "id": "CORPUS_CHRISTI_USA", "name": "Corpus Christi", "coords": [-97.28, 27.81] },
+    { "id": "BONNY_ISLAND_NIGERIA", "name": "Bonny Island", "coords": [7.14, 4.41] }
+  ],
+  "chokepoints": [
+    { "id": "HORMUZ", "name": "Strait of Hormuz", "coords": [56.48, 26.56] },
+    { "id": "MALACCA", "name": "Strait of Malacca", "coords": [100.0, 4.0] },
+    { "id": "BAB_EL_MANDEB", "name": "Bab el-Mandeb", "coords": [43.41, 12.65] },
+    { "id": "CAPE_OF_GOOD_HOPE", "name": "Cape of Good Hope", "coords": [18.42, -34.85] },
+    { "id": "SUEZ_CANAL", "name": "Suez Canal", "coords": [32.35, 30.5] },
+    { "id": "SUNDA_STRAIT", "name": "Sunda Strait", "coords": [105.75, -6.0] }
+  ],
+  "maritime_routes": [
+    {
+      "route_id": "R_BASRA_IRAQ_TO_JAMNAGAR_RIL",
+      "origin": "BASRA_IRAQ",
+      "destination": "JAMNAGAR_RIL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[47.93, 30.0], [56.48, 26.56], [62.0, 20.0], [69.96, 22.47]]
+    },
+    {
+      "route_id": "R_BASRA_IRAQ_TO_KOCHI_BPCL",
+      "origin": "BASRA_IRAQ",
+      "destination": "KOCHI_BPCL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[47.93, 30.0], [56.48, 26.56], [62.0, 20.0], [76.26, 9.93]]
+    },
+    {
+      "route_id": "R_BASRA_IRAQ_TO_PARADIP_IOCL",
+      "origin": "BASRA_IRAQ",
+      "destination": "PARADIP_IOCL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[47.93, 30.0], [56.48, 26.56], [62.0, 20.0], [86.64, 20.25]]
+    },
+    {
+      "route_id": "R_BASRA_IRAQ_TO_MUMBAI_HPCL",
+      "origin": "BASRA_IRAQ",
+      "destination": "MUMBAI_HPCL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[47.93, 30.0], [56.48, 26.56], [62.0, 20.0], [72.89, 19.01]]
+    },
+    {
+      "route_id": "R_BASRA_IRAQ_TO_CHENNAI_CPCL",
+      "origin": "BASRA_IRAQ",
+      "destination": "CHENNAI_CPCL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[47.93, 30.0], [56.48, 26.56], [62.0, 20.0], [80.27, 13.08]]
+    },
+    {
+      "route_id": "R_RAS_TANURA_SAUDI_TO_JAMNAGAR_RIL",
+      "origin": "RAS_TANURA_SAUDI",
+      "destination": "JAMNAGAR_RIL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[50.16, 26.64], [56.48, 26.56], [62.0, 20.0], [69.96, 22.47]]
+    },
+    {
+  "route_id": "R_RAS_TANURA_SAUDI_TO_KOCHI_BPCL",
+  "origin": "RAS_TANURA_SAUDI",
+  "destination": "KOCHI_BPCL",
+  "chokepoints_crossed": ["HORMUZ"],
+  "geojson_path": [[50.16, 26.64], [56.48, 26.56], [62.0, 20.0], [76.26, 9.93]]
+    },
+    {
+      "route_id": "R_RAS_TANURA_SAUDI_TO_PARADIP_IOCL",
+      "origin": "RAS_TANURA_SAUDI",
+      "destination": "PARADIP_IOCL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[50.16, 26.64], [56.48, 26.56], [62.0, 20.0], [86.64, 20.25]]
+    },
+    {
+      "route_id": "R_RAS_TANURA_SAUDI_TO_MUMBAI_HPCL",
+      "origin": "RAS_TANURA_SAUDI",
+      "destination": "MUMBAI_HPCL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[50.16, 26.64], [56.48, 26.56], [62.0, 20.0], [72.89, 19.01]]
+    },
+    {
+      "route_id": "R_RAS_TANURA_SAUDI_TO_CHENNAI_CPCL",
+      "origin": "RAS_TANURA_SAUDI",
+      "destination": "CHENNAI_CPCL",
+      "chokepoints_crossed": ["HORMUZ"],
+      "geojson_path": [[50.16, 26.64], [56.48, 26.56], [62.0, 20.0], [80.27, 13.08]]
+    },
+    {
+      "route_id": "R_FUJAIRAH_UAE_TO_JAMNAGAR_RIL",
+      "origin": "FUJAIRAH_UAE",
+      "destination": "JAMNAGAR_RIL",
+      "chokepoints_crossed": [],
+      "geojson_path": [[56.33, 25.12], [62.0, 20.0], [69.96, 22.47]]
+    },
+    {
+      "route_id": "R_FUJAIRAH_UAE_TO_KOCHI_BPCL",
+      "origin": "FUJAIRAH_UAE",
+      "destination": "KOCHI_BPCL",
+      "chokepoints_crossed": [],
+      "geojson_path": [[56.33, 25.12], [62.0, 20.0], [76.26, 9.93]]
+    },
+    {
+      "route_id": "R_FUJAIRAH_UAE_TO_PARADIP_IOCL",
+      "origin": "FUJAIRAH_UAE",
+      "destination": "PARADIP_IOCL",
+      "chokepoints_crossed": [],
+      "geojson_path": [[56.33, 25.12], [62.0, 20.0], [86.64, 20.25]]
+    },
+    {
+      "route_id": "R_FUJAIRAH_UAE_TO_MUMBAI_HPCL",
+      "origin": "FUJAIRAH_UAE",
+      "destination": "MUMBAI_HPCL",
+      "chokepoints_crossed": [],
+      "geojson_path": [[56.33, 25.12], [62.0, 20.0], [72.89, 19.01]]
+    },
+    {
+      "route_id": "R_FUJAIRAH_UAE_TO_CHENNAI_CPCL",
+      "origin": "FUJAIRAH_UAE",
+      "destination": "CHENNAI_CPCL",
+      "chokepoints_crossed": [],
+      "geojson_path": [[56.33, 25.12], [62.0, 20.0], [80.27, 13.08]]
+    },
+    {
+      "route_id": "R_KOZMINO_RUSSIA_TO_JAMNAGAR_RIL",
+      "origin": "KOZMINO_RUSSIA",
+      "destination": "JAMNAGAR_RIL",
+      "chokepoints_crossed": ["MALACCA"],
+      "geojson_path": [[133.01, 42.73], [120.0, 20.0], [100.0, 4.0], [90.0, 6.0], [69.96, 22.47]],
+      "alt_chokepoints_crossed": ["SUNDA_STRAIT"],
+      "alt_geojson_path": [[133.01, 42.73], [120.0, 15.0], [105.75, -6.0], [90.0, 6.0], [69.96, 22.47]]
+    },
+    {
+      "route_id": "R_KOZMINO_RUSSIA_TO_KOCHI_BPCL",
+      "origin": "KOZMINO_RUSSIA",
+      "destination": "KOCHI_BPCL",
+      "chokepoints_crossed": ["MALACCA"],
+      "geojson_path": [[133.01, 42.73], [120.0, 20.0], [100.0, 4.0], [90.0, 6.0], [76.26, 9.93]],
+      "alt_chokepoints_crossed": ["SUNDA_STRAIT"],
+      "alt_geojson_path": [[133.01, 42.73], [120.0, 15.0], [105.75, -6.0], [90.0, 6.0], [76.26, 9.93]]
+    },
+    {
+      "route_id": "R_KOZMINO_RUSSIA_TO_PARADIP_IOCL",
+      "origin": "KOZMINO_RUSSIA",
+      "destination": "PARADIP_IOCL",
+      "chokepoints_crossed": ["MALACCA"],
+      "geojson_path": [[133.01, 42.73], [120.0, 20.0], [100.0, 4.0], [90.0, 6.0], [86.64, 20.25]],
+      "alt_chokepoints_crossed": ["SUNDA_STRAIT"],
+      "alt_geojson_path": [[133.01, 42.73], [120.0, 15.0], [105.75, -6.0], [90.0, 6.0], [86.64, 20.25]]
+    },
+    {
+      "route_id": "R_KOZMINO_RUSSIA_TO_MUMBAI_HPCL",
+      "origin": "KOZMINO_RUSSIA",
+      "destination": "MUMBAI_HPCL",
+      "chokepoints_crossed": ["MALACCA"],
+      "geojson_path": [[133.01, 42.73], [120.0, 20.0], [100.0, 4.0], [90.0, 6.0], [72.89, 19.01]],
+      "alt_chokepoints_crossed": ["SUNDA_STRAIT"],
+      "alt_geojson_path": [[133.01, 42.73], [120.0, 15.0], [105.75, -6.0], [90.0, 6.0], [72.89, 19.01]]
+    },
+    {
+      "route_id": "R_KOZMINO_RUSSIA_TO_CHENNAI_CPCL",
+      "origin": "KOZMINO_RUSSIA",
+      "destination": "CHENNAI_CPCL",
+      "chokepoints_crossed": ["MALACCA"],
+      "geojson_path": [[133.01, 42.73], [120.0, 20.0], [100.0, 4.0], [90.0, 6.0], [80.27, 13.08]],
+      "alt_chokepoints_crossed": ["SUNDA_STRAIT"],
+      "alt_geojson_path": [[133.01, 42.73], [120.0, 15.0], [105.75, -6.0], [90.0, 6.0], [80.27, 13.08]]
+    },
+    {
+      "route_id": "R_CORPUS_CHRISTI_USA_TO_JAMNAGAR_RIL",
+      "origin": "CORPUS_CHRISTI_USA",
+      "destination": "JAMNAGAR_RIL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[-97.28, 27.81], [-75.0, 30.0], [-25.0, 35.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [69.96, 22.47]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[-97.28, 27.81], [-30.0, -20.0], [18.42, -34.85], [55.0, -10.0], [69.96, 22.47]]
+    },
+    {
+      "route_id": "R_CORPUS_CHRISTI_USA_TO_KOCHI_BPCL",
+      "origin": "CORPUS_CHRISTI_USA",
+      "destination": "KOCHI_BPCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[-97.28, 27.81], [-75.0, 30.0], [-25.0, 35.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [76.26, 9.93]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[-97.28, 27.81], [-30.0, -20.0], [18.42, -34.85], [55.0, -10.0], [76.26, 9.93]]
+    },
+    {
+      "route_id": "R_CORPUS_CHRISTI_USA_TO_PARADIP_IOCL",
+      "origin": "CORPUS_CHRISTI_USA",
+      "destination": "PARADIP_IOCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[-97.28, 27.81], [-75.0, 30.0], [-25.0, 35.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [86.64, 20.25]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[-97.28, 27.81], [-30.0, -20.0], [18.42, -34.85], [55.0, -10.0], [86.64, 20.25]]
+    },
+    {
+      "route_id": "R_CORPUS_CHRISTI_USA_TO_MUMBAI_HPCL",
+      "origin": "CORPUS_CHRISTI_USA",
+      "destination": "MUMBAI_HPCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[-97.28, 27.81], [-75.0, 30.0], [-25.0, 35.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [72.89, 19.01]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[-97.28, 27.81], [-30.0, -20.0], [18.42, -34.85], [55.0, -10.0], [72.89, 19.01]]
+    },
+    {
+      "route_id": "R_CORPUS_CHRISTI_USA_TO_CHENNAI_CPCL",
+      "origin": "CORPUS_CHRISTI_USA",
+      "destination": "CHENNAI_CPCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[-97.28, 27.81], [-75.0, 30.0], [-25.0, 35.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [80.27, 13.08]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[-97.28, 27.81], [-30.0, -20.0], [18.42, -34.85], [55.0, -10.0], [80.27, 13.08]]
+    },
+    {
+      "route_id": "R_BONNY_ISLAND_NIGERIA_TO_JAMNAGAR_RIL",
+      "origin": "BONNY_ISLAND_NIGERIA",
+      "destination": "JAMNAGAR_RIL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[7.14, 4.41], [-10.0, 15.0], [-15.0, 30.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [69.96, 22.47]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[7.14, 4.41], [0.0, -20.0], [18.42, -34.85], [55.0, -10.0], [69.96, 22.47]]
+    },
+    {
+      "route_id": "R_BONNY_ISLAND_NIGERIA_TO_KOCHI_BPCL",
+      "origin": "BONNY_ISLAND_NIGERIA",
+      "destination": "KOCHI_BPCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[7.14, 4.41], [-10.0, 15.0], [-15.0, 30.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [76.26, 9.93]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[7.14, 4.41], [0.0, -20.0], [18.42, -34.85], [55.0, -10.0], [76.26, 9.93]]
+    },
+    {
+      "route_id": "R_BONNY_ISLAND_NIGERIA_TO_PARADIP_IOCL",
+      "origin": "BONNY_ISLAND_NIGERIA",
+      "destination": "PARADIP_IOCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[7.14, 4.41], [-10.0, 15.0], [-15.0, 30.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [86.64, 20.25]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[7.14, 4.41], [0.0, -20.0], [18.42, -34.85], [55.0, -10.0], [86.64, 20.25]]
+    },
+    {
+      "route_id": "R_BONNY_ISLAND_NIGERIA_TO_MUMBAI_HPCL",
+      "origin": "BONNY_ISLAND_NIGERIA",
+      "destination": "MUMBAI_HPCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[7.14, 4.41], [-10.0, 15.0], [-15.0, 30.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [72.89, 19.01]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[7.14, 4.41], [0.0, -20.0], [18.42, -34.85], [55.0, -10.0], [72.89, 19.01]]
+    },
+    {
+      "route_id": "R_BONNY_ISLAND_NIGERIA_TO_CHENNAI_CPCL",
+      "origin": "BONNY_ISLAND_NIGERIA",
+      "destination": "CHENNAI_CPCL",
+      "chokepoints_crossed": ["SUEZ_CANAL", "BAB_EL_MANDEB"],
+      "geojson_path": [[7.14, 4.41], [-10.0, 15.0], [-15.0, 30.0], [-5.6, 35.9], [20.0, 34.0], [32.35, 30.5], [43.41, 12.65], [55.0, 15.0], [80.27, 13.08]],
+      "alt_chokepoints_crossed": ["CAPE_OF_GOOD_HOPE"],
+      "alt_geojson_path": [[7.14, 4.41], [0.0, -20.0], [18.42, -34.85], [55.0, -10.0], [80.27, 13.08]]
+    }
+  ]
+}

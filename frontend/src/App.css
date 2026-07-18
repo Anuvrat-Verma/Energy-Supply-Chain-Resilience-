@@ -1,3 +1,465 @@
+/* Dashboard Layout */
+/* position:fixed + inset:0 bypasses #root's Vite-template max-width/centering
+   so the app shell always fills the full viewport regardless of ancestor sizing. */
+.dashboard-layout {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  background: #0a0a0c;
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
+}
+
+.map-view-container {
+  position: relative;
+  flex: 1 1 auto;
+  height: 100%;
+  min-width: 0;
+  border-right: 1px solid #2d2d35;
+}
+
+.sidebar-data-panel {
+  flex: 0 0 450px;
+  height: 100%;
+  padding: 20px;
+  background: #111116;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border-left: 1px solid #2d2d35;
+}
+
+/* Used by tabs (e.g. Economic Impact) that don't need the map — expands
+   the panel to fill the full viewport width instead of the fixed 450px rail. */
+.sidebar-data-panel.full-width {
+  flex: 1 1 auto;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  border-left: none;
+}
+
+/* Map Legend */
+.map-legend {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  background: rgba(15, 15, 20, 0.85);
+  border: 1px solid #2d2d35;
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #ddd;
+  z-index: 1;
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #fff;
+}
+
+.legend-dot.refinery-dot { background: #00ff00; }
+.legend-dot.supplier-dot { background: #3399ff; }
+.legend-dot.chokepoint-dot { background: #ff0000; }
+
+/* Tab Navigation + Mode Toggle */
+.tab-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #2d2d35;
+}
+
+.tab-nav-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.tab-nav-btn {
+  background: #1a1a20;
+  color: #999;
+  border: 1px solid #2d2d35;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tab-nav-btn:hover {
+  border-color: #4a90e2;
+  color: #ddd;
+}
+
+.tab-nav-btn.active {
+  background: #4a90e2;
+  border-color: #4a90e2;
+  color: #fff;
+}
+
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mode-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #555;
+  transition: color 0.15s ease;
+}
+
+.mode-label.active { color: #e0e0e0; }
+
+.mode-switch {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  border-radius: 11px;
+  border: none;
+  background: #2ecc71;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.mode-switch.sandbox { background: #f39c12; }
+
+.mode-switch-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+
+.mode-switch.sandbox .mode-switch-knob {
+  transform: translateX(22px);
+}
+
+/* Sandbox Prompt Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background: #16161c;
+  border: 1px solid #2d2d35;
+  border-radius: 10px;
+  padding: 24px;
+  width: 420px;
+  max-width: 90vw;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-box h3 {
+  margin: 0 0 8px 0;
+  color: #f39c12;
+  font-size: 1rem;
+}
+
+.modal-subtext {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0 0 15px 0;
+  line-height: 1.4;
+}
+
+.modal-textarea {
+  width: 100%;
+  background: #0a0a0c;
+  color: #e0e0e0;
+  border: 1px solid #2d2d35;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.modal-textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #2d2d35;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-btn.cancel {
+  background: transparent;
+  color: #999;
+}
+
+.modal-btn.cancel:hover { color: #ddd; }
+
+.modal-btn.submit {
+  background: #f39c12;
+  border-color: #f39c12;
+  color: #1a1200;
+}
+
+.modal-btn.submit:hover { background: #e08e0b; }
+
+.modal-btn.submit:disabled {
+  background: #4a3a1a;
+  border-color: #4a3a1a;
+  color: #7a7a7a;
+  cursor: not-allowed;
+}
+
+/* Tab 2 Economic Impact Styling — full-width 2-column dashboard grid */
+.econ-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .econ-grid { grid-template-columns: 1fr; }
+}
+
+.econ-card-grid {
+  background: #1a1a20;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #4a90e2;
+}
+
+.econ-card-grid.accent-blue { border-left-color: #4a90e2; }
+.econ-card-grid.accent-orange { border-left-color: #f39c12; }
+.econ-card-grid.accent-purple { border-left-color: #9b59b6; }
+.econ-card-grid.accent-red { border-left-color: #e74c3c; }
+
+.econ-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #ddd;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+}
+
+.econ-icon { font-size: 1.2rem; }
+
+.econ-card-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #bbb;
+  margin: 0;
+}
+
+/* Tab 1 Styling */
+.tab1-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tab1-header h2 {
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: #888;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+.summary-box {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 3px solid #4a90e2;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.risks-section h3, .refinery-section h3 {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.risks-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.risk-item {
+  background: #1a1a20;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #2d2d35;
+}
+
+.risk-item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.chokepoint-name { color: #f39c12; }
+.prob-value { color: #e74c3c; }
+
+.risk-progress-bg {
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.risk-progress-fill {
+  height: 100%;
+  background: #e74c3c;
+  border-radius: 2px;
+}
+
+.risk-reasoning {
+  font-size: 0.85rem;
+  color: #bbb;
+  margin-bottom: 8px;
+}
+
+.supplier-tag {
+  font-size: 0.75rem;
+  background: #252530;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  color: #88c;
+}
+
+/* Refinery Grid */
+.refinery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.refinery-card {
+  background: #1a1a20;
+  padding: 12px;
+  border-radius: 8px;
+  border-top: 2px solid #2ecc71;
+}
+
+.refinery-card.status-spr_exhausted {
+  border-top-color: #e74c3c;
+  opacity: 0.8;
+}
+
+.refinary-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.runway-stat, .load-stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
+
+.label { color: #777; }
+.value.critical { color: #e74c3c; font-weight: bold; }
+
+.source-stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: #44ccff;
+  margin: 6px 0;
+  line-height: 1.3;
+}
+
+.source-arrow {
+  flex-shrink: 0;
+  color: #44ccff;
+}
+
+.source-value {
+  word-break: break-word;
+}
+
+.refinery-status-badge {
+  font-size: 0.65rem;
+  text-align: right;
+  margin-top: 8px;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.network-footer {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+
+.stat-pill {
+  background: #1a1a20;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  border: 1px solid #2d2d35;
+}
+
+.stat-pill .label { margin-right: 5px; }
+.stat-pill .value { color: #4a90e2; font-weight: 600; }
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;

@@ -1,24 +1,88 @@
 syntax = "proto3";
 
-package energy_resilience;
+package energy;
 
-service EnergyOrchestrator {
-  // Original: For continuous backend/n8n ingestion feeds
-  rpc StreamResiliencePipeline(stream AlertSignal) returns (stream SimulationResult);
-  
-  // NEW: For React UI manual clicks (Unary Request -> Response)
-  rpc TriggerManualOverride(AlertSignal) returns (SimulationResult);
+// --- EXISTING MESSAGES ---
+message ChokepointAlert {
+    repeated string detected_chokepoints = 1;
+    repeated string affected_supplier = 2; // Changed from 'string' to 'repeated string'
+    repeated float current_state_vector = 4;
+    string news_feed = 3;
 }
-
-message AlertSignal {
-  string source_headline = 1;
-  string detected_chokepoint = 2;
-  int32 baseline_risk_score = 3;
-}
-
 message SimulationResult {
-  string active_recommendation = 1;
-  double calculated_spr_days_left = 2;
-  string affected_corridor = 3;
-  bool trigger_alarm_ui = 4;
+    string active_recommendation = 1;
+    float calculated_spr_days_left = 2;
+    string affected_corridor = 3;
+    bool trigger_alarm_ui = 4;
+    string raw_cpp_json = 5; 
 }
+
+// --- NEW AI MESSAGES ---
+message RiskAnalysisRequest {
+    string region_filter = 1;
+}
+
+message ChokepointRisk {
+    string chokepoint_name = 1;
+    int32 disruption_probability = 2;
+    string risk_reasoning = 3;
+    string affected_supplier = 4;
+}
+
+message RiskAnalysisResponse {
+    repeated ChokepointRisk risks = 1;
+    string overall_summary = 2;
+    string triggered_simulation_json = 3;
+    CascadingImpact economic_impact = 4;
+    ProcurementStrategy procurement_strategy = 5;
+    SPROptimization spr_optimization = 6; // Add this line
+}
+
+message CascadingImpact {
+    string refinery_run_rates = 1;
+    string domestic_fuel_prices = 2;
+    string power_sector_stress = 3;
+    string gdp_trajectory = 4;
+}
+
+// --- NEW TAB 3 STRUCTURES ---
+message VesselAction {
+    string vessel = 1;
+    string action = 2;
+}
+
+message RecommendedSplit {
+    string west_africa = 1;
+    string usgc = 2;
+    string latin_america = 3;
+}
+
+message ProcurementStrategy {
+    string procurement_strategy_prose = 1;
+    string recommended_action = 2;
+    int32 shortfall_bpd = 3;
+    RecommendedSplit recommended_split = 4;
+    string estimated_additional_cost = 5;
+    repeated string key_risks = 6;
+    map<string, string> escalation_triggers = 7;
+    repeated VesselAction vessel_specific_actions = 8;
+}
+
+message SPROptimization {
+  string policy_directive_prose = 1;
+  int64 optimal_drawdown_rate_bpd = 2;
+  double runway_extension_days = 3;
+  double confidence_variance_std = 4;
+  string daily_drawdown_curve_json = 5;
+  string sensitivity_shock_curve_json = 6;
+  string extracted_features_json = 7;
+  repeated float feature_vector = 8;
+}
+
+// --- THE GRPC SERVICE ---
+service EnergyOrchestrator {
+    rpc StreamResiliencePipeline(stream ChokepointAlert) returns (stream SimulationResult);
+    rpc TriggerManualOverride(ChokepointAlert) returns (SimulationResult);
+    rpc AnalyzeGeopoliticalRisk(ChokepointAlert) returns (RiskAnalysisResponse);
+}
+

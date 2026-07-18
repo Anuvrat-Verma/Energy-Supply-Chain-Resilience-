@@ -1,0 +1,14 @@
+METADATA: Source=Indian Port Authority & Refinery Feedstock Briefing, Year=2026, Domain=Port Operations
+CORE METRICS: SPM Discharge Rates, API Gravity Mismatch, Spot Market Yield Loss
+
+[API GRAVITY & REFINERY YIELD MISMATCH]
+Emergency diversion away from Middle Eastern sour crudes (e.g., Iraqi Basrah Heavy or Saudi Arab Light) to alternative spot markets introduces severe feedstock mismatches for Indian coastal refineries. Replacing Middle Eastern crude with US Gulf Coast (USGC) sweet grades like WTI Midland directly clashes with the high Nelson Complexity Index (NCI) of refineries like BPCL Kochi and IOCL Paradip. Processing lighter US crude drops the middle distillate (diesel/gasoil) extraction yield by 4.5% to 6.2%, aggravating domestic diesel shortfalls even if the raw barrel count is replaced.
+
+[SPOT PROCUREMENT SPLIT STRATEGY (CHOKEPOINT MATRIX)]
+Emergency maritime procurement splits must dynamically adapt to the specific geographic chokepoint failure to optimize refinery coker units:
+- IF HORMUZ BLOCKED: Middle Eastern sour crude is cut. Replace with 65% West Africa (WAF) / 35% Latin America & USGC.
+- IF RED SEA / BAB EL-MANDEB BLOCKED: European and Russian flows to Asia are delayed by 14-day Cape of Good Hope reroutes. Increase Middle Eastern spot procurement (Saudi/UAE via pipeline bypasses) to 80% and offset with 20% Southeast Asian grades (e.g., Malaysian Kimanis). 
+
+- IF MALACCA STRAIT BLOCKED: Pacific-to-Indian Ocean transit is choked. Divert Far East inbound VLCCs to the Sunda or Lombok Strait bypasses, and cover immediate shortfalls entirely with Middle Eastern (Persian Gulf) spot markets.
+[PORT DISCHARGE BOTTLENECKS]
+Rerouting VLCCs to the East Coast to avoid Arabian Sea threats hits immediate physical infrastructure limits. The Single Point Mooring (SPM) facilities at Paradip Port have a maximum safe discharge rate of 10,000 Kiloliters/hour under ideal drafts. Sudden influxes of diverted VLCCs cause immediate demurrage (waiting time) compounding delays. Tankers diverted to Deendayal Port (Kandla) on the West Coast face strict draft restrictions of 14.5 meters, requiring VLCCs to undergo costly and time-consuming mid-ocean lighterage (ship-to-ship transfers) before entering the Gulf of Kutch.

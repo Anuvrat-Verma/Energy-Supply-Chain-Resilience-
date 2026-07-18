@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -54,16 +56,17 @@ body {
   margin: 0;
 }
 
+/* Note: the default Vite template centers/constrains #root (fixed width,
+   text-align: center). This app renders a full-viewport fixed dashboard
+   layout (see .dashboard-layout in App.css), so #root must stay unconstrained
+   and left-aligned — otherwise every child inherits center-aligned text. */
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  width: 100%;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  text-align: left;
 }
 
 h1,

@@ -1,0 +1,17 @@
+METADATA: Source=Ministry of Finance Sovereign Document, Year=2026, Dataset=Economic Survey Baseline
+CORE DOMAINS: GDP Trajectory, Fiscal Deficit, Monetary Management, External Sector, Inflation
+
+[CHAPTER 1: STATE OF THE ECONOMY – GROWTH TRAJECTORY]
+Real GDP growth for India is explicitly estimated at 7.4% for FY26, driven by a double engine of domestic private consumption and public investment. The official projected real GDP growth trajectory for FY27 is locked between 6.8% and 7.2%. India's medium-term structural potential GDP growth rate is established at ~7% due to sustained digital infrastructure and supply chain reforms. Private Final Consumption Expenditure (PFCE) has climbed to 61.5% of GDP, representing the highest baseline demand cushion since 2011-12. Gross Fixed Capital Formation (GFCF) holds steady at 30% of GDP, anchored by strong public capital expenditure expansions.
+
+[CHAPTER 2: FISCAL DEVELOPMENTS – DEFICIT AND CAPEX BOUNDARIES]
+The central government's calibrated fiscal strategy successfully contained the fiscal deficit to a target of 4.4% of GDP for FY26, down significantly from the 9.2% peak recorded in FY21. The sovereign revenue profile has expanded, with center revenue receipts rising to 9.2% of GDP reflecting robust tax compliance. Effective capital expenditure (CapEx) has been scaled up aggressively to 4.0% of GDP to reinforce physical connectivity and industrial capacity. This strict 4.4% deficit target defines the absolute boundary limit for how much additional oil subsidy or OMC under-recovery burden the government can absorb before triggering fiscal destabilization.
+
+[CHAPTER 3: MONETARY MANAGEMENT – BANKING SECTOR RESILIENCE]
+India's monetary and banking sector enters the cycle with multi-decadal balance sheet strength. Gross Non-Performing Assets (GNPAs) of Scheduled Commercial Banks have dropped to a multi-decade low of 2.2%, while Net NPAs have cleared down to 0.5%. This systemic liquidity health ensures that domestic banking lines remain robust, allowing oil marketing companies (OMCs) to access short-term credit facilities easily to finance sudden spot market procurement variations without systemic credit freezes.
+
+[CHAPTER 4: EXTERNAL SECTOR – SHOCK ABSORBERS AND LOGISTICS DEBT]
+India's Current Account Deficit (CAD) stands comfortable and well-insulated at 0.8% of GDP in the first half of FY26, down from 1.3% in the prior year period. Total sovereign merchandise and services exports reached an all-time high baseline of USD 825.3 billion. Critical external insulation is provided by India's record Foreign Exchange (Forex) reserves, which stand at USD 701.4 billion. This massive dollar war chest covers approximately 11 months of imports and represents 94% of outstanding external debt, giving the country a significant buffer to finance emergency oil import diversions during maritime transit failures.
+
+[CHAPTER 5: INFLATION – RETAIL BASKET ELASTICITIES]
+Average domestic Consumer Price Index (CPI) retail inflation successfully moderated to a historic series low of 1.7% during the April-December window, driven by favorable domestic crop cycles. However, the reserve framework notes that underlying retail prices remain deeply sensitive to imported inflation channels, specifically warning that global shipping bottlenecks, currency depreciation against the USD, and base metal or fuel volatility present immediate upside risks that can break the RBI's long-term 4.0% inflation target anchor.

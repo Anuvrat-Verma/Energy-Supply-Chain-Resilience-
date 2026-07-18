@@ -26,7 +26,8 @@ if _version_not_supported:
 
 
 class EnergyOrchestratorStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """--- THE GRPC SERVICE ---
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -35,30 +36,40 @@ class EnergyOrchestratorStub(object):
             channel: A grpc.Channel.
         """
         self.StreamResiliencePipeline = channel.stream_stream(
-                '/energy_resilience.EnergyOrchestrator/StreamResiliencePipeline',
-                request_serializer=energy__pb2.AlertSignal.SerializeToString,
+                '/energy.EnergyOrchestrator/StreamResiliencePipeline',
+                request_serializer=energy__pb2.ChokepointAlert.SerializeToString,
                 response_deserializer=energy__pb2.SimulationResult.FromString,
                 _registered_method=True)
         self.TriggerManualOverride = channel.unary_unary(
-                '/energy_resilience.EnergyOrchestrator/TriggerManualOverride',
-                request_serializer=energy__pb2.AlertSignal.SerializeToString,
+                '/energy.EnergyOrchestrator/TriggerManualOverride',
+                request_serializer=energy__pb2.ChokepointAlert.SerializeToString,
                 response_deserializer=energy__pb2.SimulationResult.FromString,
+                _registered_method=True)
+        self.AnalyzeGeopoliticalRisk = channel.unary_unary(
+                '/energy.EnergyOrchestrator/AnalyzeGeopoliticalRisk',
+                request_serializer=energy__pb2.ChokepointAlert.SerializeToString,
+                response_deserializer=energy__pb2.RiskAnalysisResponse.FromString,
                 _registered_method=True)
 
 
 class EnergyOrchestratorServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """--- THE GRPC SERVICE ---
+    """
 
     def StreamResiliencePipeline(self, request_iterator, context):
-        """Original: For continuous backend/n8n ingestion feeds
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerManualOverride(self, request, context):
-        """NEW: For React UI manual clicks (Unary Request -> Response)
-        """
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AnalyzeGeopoliticalRisk(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -68,24 +79,30 @@ def add_EnergyOrchestratorServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'StreamResiliencePipeline': grpc.stream_stream_rpc_method_handler(
                     servicer.StreamResiliencePipeline,
-                    request_deserializer=energy__pb2.AlertSignal.FromString,
+                    request_deserializer=energy__pb2.ChokepointAlert.FromString,
                     response_serializer=energy__pb2.SimulationResult.SerializeToString,
             ),
             'TriggerManualOverride': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerManualOverride,
-                    request_deserializer=energy__pb2.AlertSignal.FromString,
+                    request_deserializer=energy__pb2.ChokepointAlert.FromString,
                     response_serializer=energy__pb2.SimulationResult.SerializeToString,
+            ),
+            'AnalyzeGeopoliticalRisk': grpc.unary_unary_rpc_method_handler(
+                    servicer.AnalyzeGeopoliticalRisk,
+                    request_deserializer=energy__pb2.ChokepointAlert.FromString,
+                    response_serializer=energy__pb2.RiskAnalysisResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'energy_resilience.EnergyOrchestrator', rpc_method_handlers)
+            'energy.EnergyOrchestrator', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('energy_resilience.EnergyOrchestrator', rpc_method_handlers)
+    server.add_registered_method_handlers('energy.EnergyOrchestrator', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
 class EnergyOrchestrator(object):
-    """Missing associated documentation comment in .proto file."""
+    """--- THE GRPC SERVICE ---
+    """
 
     @staticmethod
     def StreamResiliencePipeline(request_iterator,
@@ -101,8 +118,8 @@ class EnergyOrchestrator(object):
         return grpc.experimental.stream_stream(
             request_iterator,
             target,
-            '/energy_resilience.EnergyOrchestrator/StreamResiliencePipeline',
-            energy__pb2.AlertSignal.SerializeToString,
+            '/energy.EnergyOrchestrator/StreamResiliencePipeline',
+            energy__pb2.ChokepointAlert.SerializeToString,
             energy__pb2.SimulationResult.FromString,
             options,
             channel_credentials,
@@ -128,9 +145,36 @@ class EnergyOrchestrator(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/energy_resilience.EnergyOrchestrator/TriggerManualOverride',
-            energy__pb2.AlertSignal.SerializeToString,
+            '/energy.EnergyOrchestrator/TriggerManualOverride',
+            energy__pb2.ChokepointAlert.SerializeToString,
             energy__pb2.SimulationResult.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def AnalyzeGeopoliticalRisk(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/energy.EnergyOrchestrator/AnalyzeGeopoliticalRisk',
+            energy__pb2.ChokepointAlert.SerializeToString,
+            energy__pb2.RiskAnalysisResponse.FromString,
             options,
             channel_credentials,
             insecure,

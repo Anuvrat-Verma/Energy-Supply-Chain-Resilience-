@@ -1,0 +1,11 @@
+METADATA: Source=Directorate General of Shipping (DGS) Emergency Protocol, Year=2026, Domain=Vessel Requisition
+CORE METRICS: SCI Fleet Capacity, Indian-Flagged Tonnage, War-Risk Hull Limits
+
+[INDIAN-FLAGGED FLEET LIMITATIONS & REQUISITION]
+Under emergency protocols of the Merchant Shipping Act, 1958, the Director General of Shipping (DGS) holds the authority to requisition the Shipping Corporation of India (SCI) Very Large Crude Carrier (VLCC) fleet. However, Indian-flagged tankers currently transport less than 10% of India's total crude oil imports. SCI's active VLCCs (including MT Desh Vishal and MT Swarna Kamal) are strictly bound by the General Insurance Corporation of India (GIC Re) war-risk limits. 
+
+[CRISIS ROUTING DIRECTIVES]
+In the event of a kinetic blockade in the Arabian Sea or Persian Gulf, foreign-flagged Free On Board (FOB) chartered vessels will immediately declare Force Majeure and halt at origin. Consequently, DGS protocols mandate that inbound Indian-flagged VLCCs currently east of the Bab el-Mandeb must execute a DIVERT TO SAFE ANCHORAGE order outside the Exclusive Economic Zone (EEZ) threat radius. Vessels already inside the Persian Gulf must HOLD POSITION AND AWAIT NAVAL ESCORT from the Indian Navy's Western Naval Command. 
+
+[FINANCIAL COST OF HULL INSURANCE]
+For SCI vessels forced to transit high-risk zones, the localized war-risk premium exacted by London P&I Clubs has decoupled from standard global rates, spiking to 1.5% of hull value. This adds a localized overhead of USD 1.5 million to USD 2.2 million per voyage, which must be absorbed directly by the Oil Marketing Companies (OMCs) under Cost, Insurance, and Freight (CIF) emergency revisions.

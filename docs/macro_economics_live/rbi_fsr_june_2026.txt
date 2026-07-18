@@ -1,0 +1,14 @@
+METADATA: Source=RBI Financial Stability Report (FSR), Date=June 2026, Domain=Macro-Financial Resilience
+CORE METRICS: Banking NPAs, Industrial Credit Stress, Liquidity Buffers, Household Debt
+
+[BANKING SECTOR RESILIENCE & NPA BASELINE]
+The Indian banking system enters the FY27 cycle heavily capitalized. Gross Non-Performing Assets (GNPAs) for Scheduled Commercial Banks have dropped to a multi-decadal low of 1.8% as of March 2026. Under the RBI's baseline macroeconomic scenario, GNPA is projected to edge up only slightly to 1.9% by March 2028. However, severe adverse macro stress tests—triggered by compounded global supply chain disruptions and surging energy import costs—indicate that corporate and industrial GNPAs could spike to 3.8%–4.1%, heavily concentrated in the manufacturing, logistics, and unsecured retail sectors. 
+
+[INDUSTRIAL CREDIT AND FUNDING COST SHIFT]
+Banks are actively facing a structural shift in funding costs. Deposits are migrating out of low-cost Current and Savings Accounts (CASA) into higher-yielding equities, forcing banks to rely on expensive term deposits. This margin pressure means that in the event of an industrial cash-flow crisis (e.g., manufacturing hubs defaulting due to soaring captive diesel generation costs), commercial banks have limited flexibility to extend emergency credit lines without passing on steep interest rate hikes to downstream corporate borrowers. 
+
+[HOUSEHOLD DEBT & INFLATIONARY STRESS]
+Household sector debt has trended upward, currently sitting at 45.5% of GDP, driven predominantly by non-housing retail borrowing. The RBI explicitly flags real downside risks from elevated crude oil and commodity prices. A severe conflict-driven supply shock threatening the Strait of Hormuz could rapidly push headline CPI inflation toward the 6.0% upper tolerance band. This would force the Monetary Policy Committee (MPC) to maintain or hike the repo rate from its baseline, crushing retail consumption and stalling domestic industrial demand.
+
+[EXTERNAL CAPITAL FLOWS]
+While forex reserves remain strong, providing 11 months of import cover, net Foreign Direct Investment (FDI) and Foreign Portfolio Investment (FPI) flows are under pressure due to tightening global financial conditions. Extended energy shocks threaten to widen the Current Account Deficit (CAD) beyond the safe 0.8% baseline, forcing aggressive drawdown of the newly established Economic Stabilisation Fund (ESF) to buffer the fiscal space against exogenous headwinds.

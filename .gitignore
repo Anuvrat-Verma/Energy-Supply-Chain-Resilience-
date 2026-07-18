@@ -1,0 +1,55 @@
+# --- Environment / secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+rl_engine/venv_rl/
+
+# --- Node / frontend ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- Vector store / generated data ---
+chroma_db/
+
+# --- RL training artifacts ---
+rl_engine/models/
+rl_engine/*.zip
+
+# --- C++ build artifacts ---
+cpp_engine/network_engine
+
+# --- Logs ---
+*.log
+logs/
+
+# --- OS / editor ---
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
