@@ -1,6 +1,6 @@
 # AI-Driven Energy Supply Chain Resilience
 
-Live news trips a **24/7 autonomous pipeline**: an LLM scores geopolitical risk, then a compiled **C++ engine** calculates optimal reroutes and network delays → two LLMs (grounded in a RAG knowledge base) translate that into economic impact and procurement strategy → a final stage blends a trained **LSTM-RL policy** with a **dynamic-programming solver** into an SPR drawdown plan. Everything is glued together by **gRPC**, so C++, Python, and the React frontend all speak one strict, binary-fast contract.
+Live news trips a **24/7 autonomous pipeline**: an LLM scores geopolitical risk, then a compiled **C++ engine** calculates optimal reroutes and network delays → two LLMs (executing in parallel) translate that into economic impact and procurement strategy → a final stage blends a trained **LSTM-RL policy** with a **dynamic-programming solver** into an SPR drawdown plan. Everything is glued together by **gRPC**, so C++, Python, and the React frontend all speak one strict, binary-fast contract.
 
 ```mermaid
 graph TD
