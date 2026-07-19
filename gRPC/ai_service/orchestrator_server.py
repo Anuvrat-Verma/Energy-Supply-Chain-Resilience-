@@ -122,6 +122,8 @@ class EnergyOrchestratorServicer(energy_pb2_grpc.EnergyOrchestratorServicer):
                 recommended_action=str(proc_data.get("recommended_action", "MAINTAIN COURSE")),
                 shortfall_bpd=shortfall_val,
                 recommended_split=energy_pb2.RecommendedSplit(
+                    middle_east=str(split_data.get("middle_east", "0%")),
+                    russia=str(split_data.get("russia", "0%")),
                     west_africa=str(split_data.get("west_africa", "0%")),
                     usgc=str(split_data.get("usgc", "0%")),
                     latin_america=str(split_data.get("latin_america", "0%"))

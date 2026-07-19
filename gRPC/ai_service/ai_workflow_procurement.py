@@ -17,15 +17,16 @@ from typing import List, Dict, Union
 # =====================================================================
 # 1. PYDANTIC SCHEMA (Strict Type Contracts)
 # =====================================================================
-# =====================================================================
-# 1. PYDANTIC SCHEMA (Strict Type Contracts)
-# =====================================================================
 # 🎯 FIX: Create a strict nested schema to force exact snake_case dictionary keys
+from pydantic import BaseModel, Field
+
 class RegionalSplitSchema(BaseModel):
-    # 🎯 FIX: Force these to be strings and explicitly ask for the '%' sign
-    west_africa: str = Field(description="Percentage allocation for West Africa (e.g., '50%').")
-    usgc: str = Field(description="Percentage allocation for US Gulf Coast (e.g., '30%').")
-    latin_america: str = Field(description="Percentage allocation for Latin America (e.g., '20%').")
+    # 🎯 FIX: Explicitly ban empty strings and mandate '0%' for unallocated space
+    middle_east: str = Field(description="Percentage allocation. MUST include '%'. Use '0%' if unallocated. Banned from using empty strings.")
+    russia: str = Field(description="Percentage allocation. MUST include '%'. Use '0%' if unallocated. Banned from using empty strings.")
+    west_africa: str = Field(description="Percentage allocation. MUST include '%'. Use '0%' if unallocated. Banned from using empty strings.")
+    usgc: str = Field(description="Percentage allocation. MUST include '%'. Use '0%' if unallocated. Banned from using empty strings.")
+    latin_america: str = Field(description="Percentage allocation. MUST include '%'. Use '0%' if unallocated. Banned from using empty strings.")
 
 class ProcurementSchema(BaseModel):
     procurement_strategy_prose: str = Field(description="Concise 1-paragraph summary.")
@@ -41,8 +42,8 @@ class ProcurementSchema(BaseModel):
     vessel_specific_actions: List[Dict[str, str]] = Field(description="List of objects with 'vessel' and 'action' keys.")
 
 # Initialize LLMs
-llm = ChatOpenAI(temperature=0.3, model="gpt-4o-mini")
-llm_json = ChatOpenAI(temperature=0.2, model="gpt-4o-mini")
+llm = ChatOpenAI(temperature=0.3, model="gpt-4o")
+llm_json = ChatOpenAI(temperature=0.2, model="gpt-4o")
 
 # 🎯 FIX: Forces function calling to avoid OpenAI's strict-mode dictionary crashes
 structured_llm = llm_json.with_structured_output(ProcurementSchema, method="function_calling")
@@ -111,11 +112,12 @@ procurement_strategy_prompt = ChatPromptTemplate.from_messages([
     CRITICAL ANALYTICAL DIRECTIVES:
     - Calculate the exact replacement volume required based on the C++ math payload.
     - Determine a primary strategic action (e.g., DIVERT + SPOT PROCURE).
-    - You MUST allocate 100% of the replacement volume across the three regions (e.g., West Africa: 50%, USGC: 30%, Latin America: 20%). Do not return 0%.
+    - You are a procurement AI. You MUST distribute the 100% replacement volume across at least 3 of the 5 available regions (Middle East, Russia, West Africa, USGC, Latin America) to minimize geopolitical supply chain risk. Do not concentrate volume in fewer than 3 regions. PRIORITIZE RUSSIAN OIL WHENEVER MIDDLE EAST BLOCKAGE IS ACTIVE.
+    - EXACT NUMBER PRESERVATION: You MUST extract the exact percentage numbers mentioned in the strategy text context. Do NOT invent percentages. Percentages MUST sum to exactly 100%.
     - Estimate the financial damage/additional cost over a 30-day window.
-    - key_risks: Generate an array of 2 highly specific operational risks. These risks MUST dynamically reflect the exact geographic constraints, active chokepoints, and alternative supply routes dictated by the current incident data. Do NOT use generic boilerplate (like basic insurance or grade compatibility) unless explicitly tied to the current geopolitical event.    
-    - escalation_triggers: Define a critical_threshold (e.g., "If Bab el-Mandeb closure exceeds 15 days or VLCC freight rates exceed $12M") and a subsequent fallback_protocol (e.g., "Pivot 100% of missing volume to USGC SPR releases")
-    - Generate specific, tactical routing orders for EVERY vessel listed in the AIS tracking array."""),
+    - key_risks: Generate an array of 2 highly specific operational risks dynamically reflecting the exact active chokepoints and alternative supply routes. Do NOT use generic boilerplate.
+    - escalation_triggers: Define a critical_threshold and a subsequent fallback_protocol.
+    - VESSEL ROUTING CONSTRAINT: Generate specific, tactical routing orders for EVERY vessel listed in the AIS tracking array. CRITICAL: Vessel destinations MUST strictly align with your regional percentage split. You are STRICTLY FORBIDDEN from routing any vessel to a region with a 0% allocation or a blocked port. Do not mention specific percentages inside the text of the vessel orders; just state the clean target destination region."""),
     ("human", """Geopolitical Crisis Intel: {news}
 Live AIS Ship Positions Payload: {ais_payload}
 C++ Operational Math (Shortfalls): {math}
@@ -126,8 +128,15 @@ Formulate the comprehensive tactical directive now.""")
 procurement_strategy_chain = procurement_strategy_prompt | llm | StrOutputParser()
 
 json_pack_prompt = ChatPromptTemplate.from_messages([
-    ("system", """You are a precision data extraction engine. Parse the provided strategic procurement analysis into the exact structured schema. 
-    Ensure 'shortfall_bpd' is calculated as a raw integer from the upstream math."""),
+    ("system", """You are a precision data extraction engine and mathematical validator. Parse the provided strategic procurement analysis into the exact structured schema. 
+    
+    CRITICAL SCHEMA ENFORCEMENT RULES:
+    1. The 'recommended_split' object MUST contain active key-value pairs for all 5 regions.
+    2. ABSOLUTELY NO EMPTY STRINGS ("") ARE ALLOWED in the split. If a region has no volume assigned, you must explicitly output "0%".
+    3. EXACT NUMBER PRESERVATION: You MUST extract the exact percentage numbers mentioned in the strategy text. Do NOT round up or simplify splits arbitrarily.
+    4. MATHEMATICAL TOTAL RULE: The sum of the percentages across all 5 regions must add up to exactly 100%. 
+    5. Ensure 'shortfall_bpd' is calculated as a raw integer from the upstream math.
+    6. TEXT SYNCHRONIZATION OBLIGATION: You must read the vessel orders inside 'vessel_specific_actions'. If the upstream text generated conflicting instructions (e.g., ordering a ship to go to a region that is mathematically allocated 0%), you MUST rewrite the text of the action to route them to an active, valid region from your mathematical split. The prose text MUST match your final JSON math perfectly."""),
     ("human", "Transform this analysis into the required schema:\n\n{strategy}")
 ])
 json_pack_chain = json_pack_prompt | structured_llm

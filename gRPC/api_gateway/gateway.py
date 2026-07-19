@@ -169,8 +169,14 @@ async def poll_rss_feeds_loop():
         "https://oilprice.com/rss/main",
         "https://www.hellenicshippingnews.com/feed/",
         "https://maritime-executive.com/api/rss/latest",
+        "https://energy.economictimes.indiatimes.com/rss/topstories",
+        "https://news.usni.org/feed",
+        "https://channel16.dryadglobal.com/rss.xml",
         "https://splash247.com/feed/",
         "https://www.defensenews.com/rss",
+        "https://www.rigzone.com/news/rss/rigzone_latest.aspx",       
+        "https://www.marinelink.com/rss",                             
+        "https://shipandbunker.com/rss"                                
     ]
     
     await asyncio.sleep(5) 

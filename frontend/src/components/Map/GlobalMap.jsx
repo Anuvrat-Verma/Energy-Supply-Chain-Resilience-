@@ -110,7 +110,7 @@ const GlobalMap = ({ selectedChokepoints, setSelectedChokepoints }) => {
       map.current.on('mouseleave', 'chokepoint-points-unselected', () => map.current.getCanvas().style.cursor = '');
 
       // 5. Hover Popups for all node types (refineries, suppliers, chokepoints)
-      const hoverPopup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false, offset: 12 });
+      const hoverPopup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false, offset: 12 , className: 'dark-hover-popup' });
       const bindHoverPopup = (layerId, labelFn) => {
         map.current.on('mouseenter', layerId, (e) => {
           map.current.getCanvas().style.cursor = 'pointer';

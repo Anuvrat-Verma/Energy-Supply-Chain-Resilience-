@@ -52,9 +52,11 @@ message VesselAction {
 }
 
 message RecommendedSplit {
-    string west_africa = 1;
-    string usgc = 2;
-    string latin_america = 3;
+    string middle_east = 1;
+    string russia = 2;
+    string west_africa = 3;
+    string usgc = 4;
+    string latin_america = 5;
 }
 
 message ProcurementStrategy {

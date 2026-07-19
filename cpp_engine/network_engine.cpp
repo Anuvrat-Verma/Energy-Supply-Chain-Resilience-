@@ -216,8 +216,7 @@ public:
         // India's actual strategic reserve buffer (days) before refineries run dry
         double INDIA_SPR_DAYS = 9.5; 
 
-        // NEW: Track the absolute longest transit time for the network to stabilize
-        double max_stabilization_days = 0.0;
+        double global_transit_days_sum = 0.0;
 
         for (size_t i = 0; i < refineries.size(); ++i) {
             int rid = get_node_id(refineries[i].name);
@@ -233,7 +232,7 @@ public:
                         flow_sum += e.flow;
                         
                         // NEW: Update network stabilization time to the absolute longest route
-                        max_stabilization_days = max(max_stabilization_days, e.transit_days);
+                        global_transit_days_sum += e.flow * e.transit_days;
                         
                         string supplier_name = "UNKNOWN";
                         for (const auto& pair : node_to_id) {
@@ -283,11 +282,11 @@ public:
 
             if (i < refineries.size() - 1) ss << ",";
         }
-        
+        double dynamic_stabilization_days = total_flow > 0 ? (global_transit_days_sum / total_flow) : 0.0;
         // NEW: Appending network_stabilization_days to the final root JSON
         ss << "],\"total_flow\":" << fixed << setprecision(0) << total_flow 
            << ",\"total_demand\":" << fixed << setprecision(0) << total_demand 
-           << ",\"network_stabilization_days\":" << fixed << setprecision(1) << max_stabilization_days 
+           << ",\"network_stabilization_days\":" << fixed << setprecision(1) << dynamic_stabilization_days 
            << ",\"blocked\":[";
         
         for (auto it = blocked.begin(); it != blocked.end(); ++it) {

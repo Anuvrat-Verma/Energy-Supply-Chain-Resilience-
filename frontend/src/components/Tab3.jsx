@@ -4,17 +4,21 @@ const formatBpd = (value) => {
 };
 
 const parseSplitPercent = (value) => {
-  const parsed = parseFloat(String(value).replace('%', ''));
+  const parsed = parseFloat(String(value).trim().replace('%', ''));
   return Number.isNaN(parsed) ? 0 : parsed;
 };
 
 const SPLIT_LABELS = {
+  middle_east: 'Middle East',
+  russia: 'Russia',
   west_africa: 'West Africa',
   usgc: 'USGC',
   latin_america: 'Latin America',
 };
 
 const SPLIT_BAR_COLORS = {
+  middle_east: 'bg-slate-600',
+  russia: 'bg-red-600',
   west_africa: 'bg-blue-500',
   usgc: 'bg-amber-500',
   latin_america: 'bg-emerald-500',
@@ -24,7 +28,6 @@ const RiskItem = ({ risk }) => {
   const hasColon = typeof risk === 'string' && risk.includes(':');
   const title = hasColon ? risk.split(':')[0] : null;
   const body = hasColon ? risk.split(':').slice(1).join(':').trim() : risk;
-
   return (
     <div className="border border-zinc-800 bg-zinc-900/60 rounded-md p-3">
       {title && (
@@ -57,9 +60,26 @@ const Tab3 = ({ data }) => {
     vessel_specific_actions,
   } = data;
 
-  const splitEntries = recommended_split
-    ? Object.entries(recommended_split)
-    : [];
+  // 1. Define your source of truth (Order matters here!)
+  const MASTER_REGIONS = ['middle_east', 'russia', 'west_africa', 'usgc', 'latin_america'];
+
+  // 2. Build split entries with robust parsing
+  let splitEntries = MASTER_REGIONS.map((regionKey) => {
+    const rawValue = recommended_split?.[regionKey];
+    const percent = parseSplitPercent(rawValue);
+    return [regionKey, percent];
+  });
+
+  // 3. Calculate total for normalization (handles missing data or sums != 100%)
+  const totalPercent = splitEntries.reduce((sum, [, percent]) => sum + percent, 0);
+
+  // Normalize to 100% for visual consistency (prevents overflow/underflow)
+  if (totalPercent > 0) {
+    splitEntries = splitEntries.map(([key, percent]) => [
+      key,
+      totalPercent > 0 ? Math.round((percent / totalPercent) * 100) : 0,
+    ]);
+  }
 
   return (
     <div className="w-full h-full bg-zinc-950 text-zinc-200 p-4 md:p-6 flex flex-col gap-5 overflow-y-auto">
@@ -94,7 +114,6 @@ const Tab3 = ({ data }) => {
           </div>
           <span className="text-red-500/60 text-3xl leading-none">&#9650;</span>
         </div>
-
         <div className="border-l-4 border-emerald-500 bg-zinc-900 rounded-md p-4 flex items-center justify-between">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-widest text-zinc-500">
@@ -117,26 +136,37 @@ const Tab3 = ({ data }) => {
           </h3>
           <div className="flex flex-col gap-4">
             {splitEntries.length > 0 ? (
-              splitEntries.map(([key, value]) => (
-                <div key={key}>
-                  <div className="flex justify-between items-baseline mb-1">
-                    <span className="text-sm text-zinc-400">
-                      {SPLIT_LABELS[key] ?? key}
-                    </span>
-                    <span className="text-sm font-bold text-zinc-100">
-                      {value}
-                    </span>
+              splitEntries.map(([key, percent]) => {
+                const label = SPLIT_LABELS[key] ?? key;
+                const color = SPLIT_BAR_COLORS[key] ?? 'bg-blue-500';
+                const displayPercent = percent; // already normalized
+
+                return (
+                  <div key={key} className="group">
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-zinc-400">{label}</span>
+                      <span className="text-sm font-bold text-zinc-100 tabular-nums">
+                        {displayPercent}%
+                      </span>
+                    </div>
+                    <div className="w-full h-2.5 bg-zinc-800 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full transition-all duration-300 ${color}`}
+                        style={{ width: `${displayPercent}%` }}
+                      />
+                    </div>
                   </div>
-                  <div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full rounded-full ${SPLIT_BAR_COLORS[key] ?? 'bg-blue-500'}`}
-                      style={{ width: `${parseSplitPercent(value)}%` }}
-                    />
-                  </div>
-                </div>
-              ))
+                );
+              })
             ) : (
               <p className="text-sm text-zinc-500">No reallocation data available.</p>
+            )}
+
+            {/* Optional total indicator */}
+            {totalPercent > 0 && (
+              <div className="text-[10px] text-zinc-500 text-right mt-1">
+                Total: <span className="font-mono">100%</span>
+              </div>
             )}
           </div>
         </div>

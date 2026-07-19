@@ -644,3 +644,34 @@
     border-right-color: var(--border);
   }
 }
+
+/* 1. Change the main popup box background and text color */
+.dark-hover-popup .mapboxgl-popup-content {
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff;            /* White text */
+  border-radius: 6px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Adds a nice shadow */
+  border: 1px solid #333;
+}
+
+/* 2. Change the color of the little triangle tip based on where it anchors */
+.dark-hover-popup.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.dark-hover-popup.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.dark-hover-popup.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+  border-bottom-color: #1a1a1a;
+}
+
+.dark-hover-popup.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.dark-hover-popup.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.dark-hover-popup.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+  border-top-color: #1a1a1a;
+}
+
+.dark-hover-popup.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  border-right-color: #1a1a1a;
+}
+
+.dark-hover-popup.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  border-left-color: #1a1a1a;
+}

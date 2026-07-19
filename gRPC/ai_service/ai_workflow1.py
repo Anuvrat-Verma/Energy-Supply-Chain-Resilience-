@@ -42,9 +42,8 @@ def execute_geopolitical_risk(request, context):
         You are a highly analytical Geopolitical Risk Intelligence Agent.
         Analyze the following live intelligence feeds and assign a supply chain disruption for India
         probability score (0 to 100) for global chokepoints.
-
-        SCHEMA CONSTRAINTS:
-        - Use ONLY these chokepoint IDs for 'chokepoint_name': ["HORMUZ", "MALACCA", "BAB_EL_MANDEB", "CAPE_OF_GOOD_HOPE"]
+        Ensure maritime chokepoints are centered around india and accurately reflect real-world shipping routes. Oil from the Middle East to India routes through the Strait of Hormuz. Oil from Russia to India routes through the Malacca Strait. Oil from the USA to India routes through the Cape of Good Hope. Oil from Africa to India routes through the Bab el-Mandeb.
+        - Use ONLY these chokepoint IDs for 'chokepoint_name': ["HORMUZ", "MALACCA", "BAB_EL_MANDEB", "CAPE_OF_GOOD_HOPE", "SUEZ_CANAL", "SUNDRA_STRAIT"]
         - Use ONLY these supplier IDs for 'affected_supplier': ["BASRA_IRAQ", "RAS_TANURA_SAUDI", "FUJAIRAH_UAE", "KOZMINO_RUSSIA", "CORPUS_CHRISTI_USA", "BONNY_ISLAND_NIGERIA"]
 
         Live Intel Feed:
