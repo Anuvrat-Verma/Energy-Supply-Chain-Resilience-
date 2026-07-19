@@ -52,7 +52,7 @@ graph TD
 **2. AI & Math Engines (The 4-Tab Core):**
 | Tab | What it does | Core tech |
 |---|---|---|
-| 1 — Risk & Reroute | Scores chokepoint disruption risk + network delays | `LLM Sentiment Analysis` + `compiled C++` (Min Cost Max Flow)|
+| 1 — Risk & Reroute | Scores chokepoint disruption risk + network delays | `LLM Sentiment Analysis` + `compiled C++` (Min Cost Max Flow via SPFA)|
 | 2 — Economic | Cascades refinery → price → grid → macro impact | `LangChain Expression Language` (Multi-Persona AI chain) + `RAG` |
 | 3 — Procurement | Recommends reroutes & spot-market buys | `LLM` + `RAG` |
 | 4 — SPR | Optimizes strategic reserve drawdown | `AI Feature Extraction` + `RL (LSTM)` + `Dynamic Programming`|
