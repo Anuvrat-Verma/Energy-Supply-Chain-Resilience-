@@ -1,4 +1,4 @@
-# AI-Driven Energy Supply Chain Resilience — Pitch Overview
+# AI-Driven Energy Supply Chain Resilience
 
 Live news trips a **24/7 autonomous pipeline**: an LLM scores geopolitical risk, then a compiled **C++ engine** calculates optimal reroutes and network delays → two LLMs (grounded in a RAG knowledge base) translate that into economic impact and procurement strategy → a final stage blends a trained **LSTM-RL policy** with a **dynamic-programming solver** into an SPR drawdown plan. Everything is glued together by **gRPC**, so C++, Python, and the React frontend all speak one strict, binary-fast contract.
 
@@ -38,7 +38,7 @@ graph TD
 
 *(Color = tab/stage · red = compiled native code · pink = knowledge base · dotted = RAG lookup.)*
 
-## Why It Wins
+## Key Points
 
 - **Polyglot by design** — gRPC/Protobuf bridges C++ (deterministic math), Python (AI/RL), and JS (UI) into one system.
 - **Fast & reliable** — binary serialization + strict typed contracts, not brittle JSON/REST.
