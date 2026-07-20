@@ -38,7 +38,7 @@ graph TD
 
 *(Color = tab/stage · red = compiled native code · pink = knowledge base · dotted = RAG lookup.)*
 
-## Key Points
+## Architecture Highlights
 
 - **Polyglot by design** — gRPC/Protobuf bridges C++ (deterministic math), Python (AI/RL), and JS (UI) into one system.
 - **Fast & reliable** — binary serialization + strict typed contracts, not brittle JSON/REST.
